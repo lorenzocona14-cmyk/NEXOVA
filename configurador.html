@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Configurador | NEXOVA</title>
+<title>Configurador | KRONOVA SOLUTIONS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="nexova.css">
@@ -116,7 +116,7 @@ function render(){
 }
 function sendWA(){
   if(!state.web&&!state.bot)return false;
-  let msg='Hola NEXOVA! Armé mi paquete:\n';
+  let msg='Hola KRONOVA SOLUTIONS! Armé mi paquete:\n';
   let unico=0,mes=0;
   if(state.web){msg+=`- ${state.web.name}: ${fmt(state.web.price)}\n`;unico+=state.web.price;mes+=50000;}
   if(state.bot){msg+=`- ${state.bot.name}: ${fmt(state.bot.price)}\n`;unico+=state.bot.price;mes+=50000;}

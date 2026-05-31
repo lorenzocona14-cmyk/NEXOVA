@@ -1,4 +1,4 @@
-// ─── LOGO SVG ───
+﻿// ─── LOGO SVG ───
 const LOGO_SVG = `
 <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="40" height="40" rx="9" fill="#0d0d0d"/>
@@ -72,7 +72,7 @@ function injectFooter() {
         <li><a href="proceso.html">Proceso</a></li>
         <li><a href="nosotros.html">Nosotros</a></li>
       </ul>
-      <p class="footer-copy">© 2026 NEXOVA — Mendoza, Argentina</p>
+      <p class="footer-copy">© 2026 KRONOVA SOLUTIONS — Mendoza, Argentina</p>
     </div>
   </footer>`;
 }
