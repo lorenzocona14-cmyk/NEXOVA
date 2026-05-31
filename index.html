@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXOVA | Automatización & Desarrollo Web — Mendoza</title>
+<meta name="description" content="NEXOVA - Agencia de automatización y desarrollo web en Mendoza. Creamos páginas web de alto impacto y bots de WhatsApp para que tu negocio funcione en piloto automático.">
+<meta property="og:title" content="NEXOVA | Automatización & Desarrollo Web — Mendoza">
+<meta property="og:description" content="Automatizamos tu atención al cliente y construimos tu presencia digital para que tu negocio trabaje en piloto automático.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nexova.css">
+<style>
+#particle-canvas{position:absolute;inset:0;z-index:0;opacity:.5;}
+.hero{position:relative;min-height:calc(100vh - 100px);display:flex;align-items:center;overflow:hidden;padding:80px 40px 100px;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0, 255, 157,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0, 255, 157,.04) 1px,transparent 1px);background-size:60px 60px;z-index:0;}
+.hero-glow{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(0, 255, 157,.12) 0%,transparent 70%);z-index:0;pointer-events:none;}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid var(--border);border-radius:100px;font-size:12px;color:var(--text-muted);letter-spacing:.08em;margin-bottom:32px;background:var(--surface);}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,10vw,140px);line-height:.92;color:var(--white);margin-bottom:12px;}
+.hero-title .orange{color:var(--orange);}
+.hero-title .outline{-webkit-text-stroke:1.5px rgba(255,255,255,.25);color:transparent;}
+.hero-sub{font-size:18px;color:var(--text-muted);max-width:520px;margin:28px 0 48px;line-height:1.7;font-weight:300;}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:80px;}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;max-width:560px;}
+.stat-item{background:var(--surface);padding:24px 28px;}
+.stat-number{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--orange);line-height:1;display:flex;align-items:baseline;gap:2px;}
+.stat-label{font-size:11px;color:var(--text-dim);letter-spacing:.05em;margin-top:4px;text-transform:uppercase;}
+.problema-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px;}
+.problema-list{list-style:none;display:flex;flex-direction:column;gap:20px;}
+.problema-item{display:flex;gap:16px;align-items:flex-start;padding:20px;border:1px solid var(--border);border-radius:10px;background:var(--surface);transition:border-color .3s;}
+.problema-item:hover{border-color:var(--orange);}
+.problema-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.problema-text strong{display:block;color:var(--text);font-weight:600;margin-bottom:4px;font-size:15px;}
+.problema-text p{color:var(--text-muted);font-size:13px;line-height:1.6;}
+.solucion-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;position:relative;overflow:hidden;}
+.solucion-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orange),transparent);}
+.services-teaser{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.teaser-card{padding:28px;border:1px solid var(--border);border-radius:14px;background:var(--surface);text-decoration:none;display:flex;flex-direction:column;gap:12px;transition:all .3s;position:relative;overflow:hidden;}
+.teaser-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top left,var(--orange-glow),transparent 60%);opacity:0;transition:opacity .3s;}
+.teaser-card:hover{border-color:var(--orange);transform:translateY(-4px);}
+.teaser-card:hover::before{opacity:1;}
+.teaser-icon{font-size:28px;}
+.teaser-name{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:.04em;}
+.teaser-desc{font-size:13px;color:var(--text-muted);line-height:1.6;flex-grow:1;}
+.teaser-link{font-size:13px;color:var(--orange);font-weight:600;}
+@media(max-width:900px){.hero{padding:60px 20px 80px;}.hero-title{font-size:clamp(56px,14vw,96px);}.hero-stats{grid-template-columns:1fr;}.problema-grid{grid-template-columns:1fr;gap:40px;}.services-teaser{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-wrap">
+
+
+<!-- HERO -->
+<div class="hero">
+  <canvas id="particle-canvas"></canvas>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge reveal"><span class="dot"></span>Disponibles para nuevos proyectos · Mendoza, Argentina</div>
+    <h1 class="hero-title reveal"><span class="orange">TU NEGOCIO</span><br><span>EN PILOTO</span><br><span class="outline">AUTOMÁTICO</span></h1>
+    <p class="hero-sub reveal">Automatizamos tu atención al cliente, construimos tu presencia digital y hacemos que tu negocio trabaje para vos — incluso cuando dormís.</p>
+    <div class="hero-ctas reveal">
+      <a href="configurador.html" class="btn-primary">Armá tu paquete ideal <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="calculadora.html" class="btn-secondary">¿Cuánto perdés sin automatizar?</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- EL PROBLEMA -->
+<section class="section">
+  <div class="reveal"><div class="section-label">El problema</div><h2 class="section-title">¿POR QUÉ TU<br>NEGOCIO PIERDE<br>CLIENTES?</h2></div>
+  <div class="problema-grid">
+    <ul class="problema-list">
+      <li class="problema-item reveal"><span class="problema-icon">😤</span><div class="problema-text"><strong>Respondés tarde o nunca</strong><p>El 78% de los clientes compra al primero que responde. Cada minuto sin contestar es plata que se va a la competencia.</p></div></li>
+      <li class="problema-item reveal"><span class="problema-icon">🕐</span><div class="problema-text"><strong>Tu negocio cierra, los clientes no</strong><p>La mayoría de las consultas llegan después del horario. Sin automatización, estás dejando plata en la mesa todas las noches.</p></div></li>
+      <li class="problema-item reveal"><span class="problema-icon">📵</span><div class="problema-text"><strong>No existís en internet</strong><p>Si no te encuentran en Google, no existís. Una web profesional es tu vendedor que trabaja los 365 días del año.</p></div></li>
+      <li class="problema-item reveal"><span class="problema-icon">🔁</span><div class="problema-text"><strong>Hacés lo mismo manual todos los días</strong><p>Confirmar turnos, mandar precios, responder las mismas preguntas. Eso se automatiza — vos deberías estar haciendo lo que importa.</p></div></li>
+    </ul>
+    <div class="solucion-box reveal">
+      <div class="section-label" style="margin-bottom:12px;">La solución</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--white);margin-bottom:20px;line-height:1;">NOSOTROS LO<br>RESOLVEMOS<br><span style="color:var(--orange)">POR VOS.</span></div>
+      <p style="color:var(--text-muted);font-size:14px;line-height:1.8;margin-bottom:28px;">En <strong style="color:var(--text)">NEXOVA</strong> combinamos desarrollo web de alto impacto con automatizaciones inteligentes para que tu negocio funcione solo.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
+        <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text-muted);"><span style="color:var(--orange);font-size:18px;">✓</span> Atención al cliente 24/7 sin contratar personal</div>
+        <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text-muted);"><span style="color:var(--orange);font-size:18px;">✓</span> Página web que vende mientras dormís</div>
+        <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text-muted);"><span style="color:var(--orange);font-size:18px;">✓</span> Turnos y reservas gestionados automáticamente</div>
+        <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text-muted);"><span style="color:var(--orange);font-size:18px;">✓</span> Precios fijos, sin sorpresas</div>
+      </div>
+      <a href="calculadora.html" class="btn-primary" style="width:100%;justify-content:center;">Calculá tu pérdida mensual →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS TEASER -->
+<div style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <section class="section">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;">
+      <div><div class="section-label">Lo que hacemos</div><h2 class="section-title" style="margin-bottom:0;">NUESTROS<br>SERVICIOS</h2></div>
+      <a href="servicios.html" class="btn-secondary">Ver todos los precios →</a>
+    </div>
+    <div class="services-teaser">
+      <a href="servicios.html" class="teaser-card reveal"><span class="teaser-icon">🌐</span><div class="teaser-name">Páginas Web</div><p class="teaser-desc">Landing pages, webs institucionales y e-commerce. Desde $100.000 ARS.</p><span class="teaser-link">Ver precios →</span></a>
+      <a href="servicios.html" class="teaser-card reveal"><span class="teaser-icon">💬</span><div class="teaser-name">Bots WhatsApp</div><p class="teaser-desc">Automatizaciones básicas, con IA y con agendamiento de turnos. Desde $200.000 ARS.</p><span class="teaser-link">Ver precios →</span></a>
+      <a href="configurador.html" class="teaser-card reveal"><span class="teaser-icon">🧩</span><div class="teaser-name">Armá tu Pack</div><p class="teaser-desc">Combiná servicios y calculá tu presupuesto en tiempo real. Sin compromiso.</p><span class="teaser-link">Configurar →</span></a>
+    </div>
+  </section>
+</div>
+
+<!-- BENEFICIOS -->
+<section class="section">
+  <div class="reveal"><div class="section-label">Por qué elegirnos</div><h2 class="section-title">RESULTADOS<br>REALES</h2></div>
+  <div class="benefits-grid">
+    <div class="benefit-card reveal"><div class="benefit-num">01</div><div class="benefit-title">Precios sin letra chica</div><p class="benefit-desc">Lo que ves es lo que pagás. Sin costos ocultos ni sorpresas. Presupuesto cerrado desde el inicio.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-num">02</div><div class="benefit-title">Entregas en tiempo real</div><p class="benefit-desc">Si prometemos 5 días, en 5 días está. Tu tiempo es valioso y lo respetamos.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-num">03</div><div class="benefit-title">Soporte local en español</div><p class="benefit-desc">Estamos en Mendoza. Entendemos el mercado argentino y estamos cuando nos necesitás.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-num">04</div><div class="benefit-title">Tecnología de primer nivel</div><p class="benefit-desc">Usamos IA, integraciones de API y automatizaciones con n8n — igual que las grandes empresas.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-num">05</div><div class="benefit-title">Siempre disponibles</div><p class="benefit-desc">Antes, durante y después del proyecto respondemos cualquier duda en menos de 24hs.</p></div>
+    <div class="benefit-card reveal"><div class="benefit-num">06</div><div class="benefit-title">Resultados desde el día 1</div><p class="benefit-desc">Cada solución está pensada para generar resultados concretos y medibles desde el primer día.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-box-wrap"><div class="cta-box">
+  <h2 class="cta-title reveal">ARRANCAMOS<br><span>CUANDO VOS</span><br>QUIERAS</h2>
+  <p class="cta-desc reveal">Primera consulta sin costo. Sin compromiso.<br>Solo charlamos y te decimos qué solución te conviene.</p>
+  <div class="cta-buttons reveal">
+    <a href="https://wa.me/+542612079647?text=Hola%20NEXOVA%2C%20quiero%20una%20consulta%20gratuita" target="_blank" class="btn-whatsapp">💬 Consulta gratuita por WhatsApp</a>
+    <a href="mailto:lorenzocona14@gmail.com" class="btn-secondary">✉️ Escribinos un mail</a>
+  </div>
+</div></div>
+
+</div>
+<div id="footer-placeholder"></div>
+<script src="nexova.js"></script>
+<script>
+injectNav(''); injectTicker(); injectFooter(); initReveal();
+const canvas=document.getElementById('particle-canvas'),ctx=canvas.getContext('2d');let particles=[];
+function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight;}
+class P{constructor(){this.reset();}reset(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*1.5+.5;this.sx=(Math.random()-.5)*.3;this.sy=(Math.random()-.5)*.3;this.o=Math.random()*.4+.1;}update(){this.x+=this.sx;this.y+=this.sy;if(this.x<0||this.x>canvas.width||this.y<0||this.y>canvas.height)this.reset();}draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=`rgba(0, 255, 157,${this.o})`;ctx.fill();}}
+function init(){particles=[];for(let i=0;i<80;i++)particles.push(new P());}
+function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<100){ctx.beginPath();ctx.strokeStyle=`rgba(0, 255, 157,${.06*(1-d/100)})`;ctx.lineWidth=.5;ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke();}}requestAnimationFrame(animate);}
+window.addEventListener('resize',()=>{resize();init();});resize();init();animate();
+function animCounter(el,t){let s;const step=ts=>{if(!s)s=ts;const p=Math.min((ts-s)/1500,1);el.textContent=Math.floor(p*t);if(p<1)requestAnimationFrame(step);else el.textContent=t;};requestAnimationFrame(step);}
+new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.counter').forEach(c=>animCounter(c,parseInt(c.dataset.target)));})). observe(document.querySelector('.hero-stats'));
+</script>
+</body></html>

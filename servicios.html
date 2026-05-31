@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios & Precios | NEXOVA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nexova.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-wrap">
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-label">Lo que hacemos</div>
+    <h1 class="page-hero-title">SERVICIOS<br>&amp; <span>PRECIOS</span></h1>
+    <p class="page-hero-desc">Precios fijos y transparentes. Sin letra chica, sin sorpresas. Todos los servicios incluyen soporte post-entrega.</p>
+  </div>
+</div>
+
+<div style="background:var(--surface);border-bottom:1px solid var(--border);">
+<div class="section-inner" style="padding-top:64px;padding-bottom:80px;">
+
+  <div class="tabs reveal">
+    <button class="tab active" onclick="switchTab('web',event)">🌐 Páginas Web</button>
+    <button class="tab" onclick="switchTab('bots',event)">💬 Bots WhatsApp</button>
+    <button class="tab" onclick="switchTab('mante',event)">🔧 Mantenimiento</button>
+  </div>
+
+  <!-- WEB -->
+  <div class="tab-panel active services-grid" id="tab-web">
+    <div class="service-card reveal">
+      <div class="service-icon">🚀</div>
+      <div class="service-name">LANDING PAGE</div>
+      <p class="service-desc">Una página de alto impacto diseñada para convertir visitantes en clientes. Ideal para servicios, campañas o productos específicos.</p>
+      <ul class="service-includes"><li>Diseño responsive (móvil y desktop)</li><li>Formulario de contacto integrado</li><li>Botón WhatsApp flotante</li><li>Optimización de carga rápida</li><li>Entrega en 3–5 días hábiles</li></ul>
+      <div class="service-price">
+        <div class="price-amount">$100.000</div>
+        <div class="price-note">ARS · Pago único</div>
+        <div class="price-monthly">+ $50.000/mes mantenimiento</div>
+        <a href="https://wa.me/+542612079647?text=Quiero%20una%20Landing%20Page" target="_blank" class="card-cta">Consultar →</a>
+      </div>
+    </div>
+    <div class="service-card featured reveal">
+      <span class="service-badge">MÁS POPULAR</span>
+      <div class="service-icon">🏢</div>
+      <div class="service-name">WEB INSTITUCIONAL</div>
+      <p class="service-desc">Sitio web profesional completo para tu empresa o negocio. Múltiples secciones, diseño premium y todo para causar primera impresión.</p>
+      <ul class="service-includes"><li>Hasta 5 secciones personalizadas</li><li>Panel de administración básico</li><li>SEO on-page configurado</li><li>Google Maps + redes sociales</li><li>Certificado SSL incluido</li><li>Entrega en 7–10 días hábiles</li></ul>
+      <div class="service-price">
+        <div class="price-amount">$200.000</div>
+        <div class="price-note">ARS · Pago único</div>
+        <div class="price-monthly">+ $50.000/mes mantenimiento</div>
+        <a href="https://wa.me/+542612079647?text=Quiero%20una%20Web%20Institucional" target="_blank" class="card-cta">Consultar →</a>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🛒</div>
+      <div class="service-name">E-COMMERCE</div>
+      <p class="service-desc">Tienda online completa lista para vender desde el día 1. Carrito, pagos, gestión de stock y panel de administración incluidos.</p>
+      <ul class="service-includes"><li>Carrito de compras completo</li><li>MercadoPago integrado</li><li>Gestión de stock y productos</li><li>Panel de administración</li><li>Cupones y descuentos</li><li>Entrega en 14–21 días hábiles</li></ul>
+      <div class="service-price">
+        <div class="price-amount">$400.000</div>
+        <div class="price-note">ARS · Pago único</div>
+        <div class="price-monthly">+ $50.000/mes mantenimiento</div>
+        <a href="https://wa.me/+542612079647?text=Quiero%20un%20E-commerce" target="_blank" class="card-cta">Consultar →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTS -->
+  <div class="tab-panel services-grid" id="tab-bots">
+    <div class="service-card reveal">
+      <div class="service-icon">🤖</div>
+      <div class="service-name">BOT BÁSICO</div>
+      <p class="service-desc">Respuestas automáticas con menú interactivo. Ideal para negocios que necesitan atender consultas frecuentes sin IA.</p>
+      <ul class="service-includes"><li>Menú de opciones interactivo</li><li>Respuestas 24/7 automáticas</li><li>Información de precios y servicios</li><li>Derivación a humano cuando sea necesario</li><li>Entrega en 3–5 días hábiles</li></ul>
+      <div class="service-price">
+        <div class="price-amount">$200.000</div>
+        <div class="price-note">ARS · Pago único</div>
+        <div class="price-monthly">+ $50.000/mes mantenimiento</div>
+        <a href="https://wa.me/+542612079647?text=Quiero%20un%20Bot%20Basico" target="_blank" class="card-cta">Consultar →</a>
+      </div>
+    </div>
+    <div class="service-card featured reveal">
+      <span class="service-badge">CON IA</span>
+      <div class="service-icon">🧠</div>
+      <div class="service-name">BOT IA</div>
+      <p class="service-desc">Entiende lenguaje natural y responde como un humano. Entrenado con la información de tu negocio para contestar cualquier pregunta.</p>
+      <ul class="service-includes"><li>Lenguaje natural con IA</li><li>Entrenado con tu catálogo y servicios</li><li>Calificación automática de leads</li><li>Respuestas contextuales inteligentes</li><li>Historial de conversaciones</li><li>Entrega en 5–7 días hábiles</li></ul>
+      <div class="service-price">
+        <div class="price-amount">$350.000</div>
+        <div class="price-note">ARS · Pago único</div>
+        <div class="price-monthly">+ $50.000/mes mantenimiento</div>
+        <a href="https://wa.me/+542612079647?text=Quiero%20un%20Bot%20IA" target="_blank" class="card-cta">Consultar →</a>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">📅</div>
+      <div class="service-name">BOT IA + TURNOS</div>
+      <p class="service-desc">Todo el poder del Bot IA más gestión automática de turnos y reservas. Tu agenda se administra sola.</p>
+      <ul class="service-includes"><li>Todo lo del Bot IA incluido</li><li>Agendamiento automático de turnos</li><li>Recordatorios automáticos</li><li>Google Calendar sincronizado</li><li>Sin superposición de horarios</li><li>Entrega en 7–10 días hábiles</li></ul>
+      <div class="service-price">
+        <div class="price-amount">$400.000</div>
+        <div class="price-note">ARS · Pago único</div>
+        <div class="price-monthly">+ $50.000/mes mantenimiento</div>
+        <a href="https://wa.me/+542612079647?text=Quiero%20un%20Bot%20con%20Turnos" target="_blank" class="card-cta">Consultar →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MANTENIMIENTO -->
+  <div class="tab-panel services-grid-2" id="tab-mante">
+    <div class="service-card featured reveal">
+      <div class="service-icon">🌐</div>
+      <div class="service-name">MANTENIMIENTO WEB</div>
+      <p class="service-desc">Incluido en todos los servicios web. Mantenemos tu sitio actualizado, seguro y funcionando perfectamente todos los meses.</p>
+      <ul class="service-includes"><li>Actualizaciones del sistema</li><li>Backups automáticos diarios</li><li>Monitoreo de seguridad</li><li>Soporte técnico prioritario</li><li>Pequeños cambios de contenido incluidos</li></ul>
+      <div class="service-price">
+        <div class="price-amount">$50.000<span style="font-size:18px;color:var(--text-dim)">/mes</span></div>
+        <div class="price-note">ARS · Pago mensual obligatorio</div>
+      </div>
+    </div>
+    <div class="service-card featured reveal">
+      <div class="service-icon">⚡</div>
+      <div class="service-name">MANTENIMIENTO BOTS</div>
+      <p class="service-desc">Incluido en todos los bots. Mantenemos tus automatizaciones funcionando, actualizadas y optimizadas mes a mes.</p>
+      <ul class="service-includes"><li>Monitoreo 24/7 del bot</li><li>Ajustes y mejoras de flujos</li><li>Actualización de respuestas de IA</li><li>Reportes mensuales de rendimiento</li><li>Soporte técnico prioritario</li></ul>
+      <div class="service-price">
+        <div class="price-amount">$50.000<span style="font-size:18px;color:var(--text-dim)">/mes</span></div>
+        <div class="price-note">ARS · Pago mensual obligatorio</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="cta-box-wrap"><div class="cta-box">
+  <h2 class="cta-title reveal">¿NO SÉS<br><span>QUÉ NECESITÁS?</span></h2>
+  <p class="cta-desc reveal">Usá el configurador para armar tu paquete ideal o escribinos y te asesoramos sin cargo.</p>
+  <div class="cta-buttons reveal">
+    <a href="configurador.html" class="btn-primary">🧩 Configurar mi paquete</a>
+    <a href="https://wa.me/+542612079647" target="_blank" class="btn-whatsapp">💬 Consultar por WhatsApp</a>
+  </div>
+</div></div>
+
+</div>
+<div id="footer-placeholder"></div>
+<script src="nexova.js"></script>
+<script>injectNav('servicios.html');injectFooter();initReveal();</script>
+</body></html>

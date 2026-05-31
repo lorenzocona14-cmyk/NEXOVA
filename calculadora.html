@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Cuánto Perdés? | NEXOVA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nexova.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-wrap">
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-label">Calculadora de ROI</div>
+    <h1 class="page-hero-title">¿CUÁNTO PERDÉS<br>SIN <span>AUTOMATIZAR?</span></h1>
+    <p class="page-hero-desc">Mové los sliders con los datos de tu negocio y mirá en tiempo real cuánta plata se escapa cada mes por no tener un bot o una web.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="roi-grid reveal">
+    <!-- INPUTS -->
+    <div class="roi-inputs">
+      <div class="roi-field">
+        <div class="roi-label">Rubro de tu negocio</div>
+        <select class="roi-select" id="roi-rubro" onchange="calcROI()">
+          <option value="1800">Restaurante / Bar (ticket $1.800)</option>
+          <option value="3500">Salón de belleza / Spa (ticket $3.500)</option>
+          <option value="5000">Consultorio médico / odontológico (ticket $5.000)</option>
+          <option value="4000">Gimnasio / Academia (ticket $4.000)</option>
+          <option value="8000">Inmobiliaria (comisión $8.000)</option>
+          <option value="6000">Taller / Lavadero (ticket $6.000)</option>
+          <option value="2500">Tienda / Comercio (ticket $2.500)</option>
+          <option value="7000">Otro negocio (ticket $7.000)</option>
+        </select>
+      </div>
+      <div class="roi-field">
+        <div class="roi-label">Consultas por WhatsApp por día <span id="val-consultas">15</span></div>
+        <input type="range" min="5" max="100" value="15" id="roi-consultas" oninput="document.getElementById('val-consultas').textContent=this.value;calcROI()">
+      </div>
+      <div class="roi-field">
+        <div class="roi-label">% de consultas fuera de horario <span id="val-fuera">40%</span></div>
+        <input type="range" min="10" max="80" value="40" id="roi-fuera" oninput="document.getElementById('val-fuera').textContent=this.value+'%';calcROI()">
+      </div>
+      <div class="roi-field">
+        <div class="roi-label">% de consultas que se convierten en venta <span id="val-conv">25%</span></div>
+        <input type="range" min="5" max="70" value="25" id="roi-conv" oninput="document.getElementById('val-conv').textContent=this.value+'%';calcROI()">
+      </div>
+      <div class="roi-field">
+        <div class="roi-label">Días de trabajo por mes <span id="val-dias">26</span></div>
+        <input type="range" min="20" max="30" value="26" id="roi-dias" oninput="document.getElementById('val-dias').textContent=this.value;calcROI()">
+      </div>
+      <div style="padding:16px;background:rgba(0, 255, 157,.06);border-radius:10px;border:1px solid rgba(0, 255, 157,.15);">
+        <p style="font-size:12px;color:var(--text-muted);line-height:1.7;">📊 <strong style="color:var(--text)">Cómo calculamos:</strong> consultas fuera de horario × tasa de conversión × ticket promedio × días del mes. Ese es el dinero que se va porque nadie responde.</p>
+      </div>
+    </div>
+    <!-- RESULTADO -->
+    <div class="roi-result">
+      <div class="roi-result-title">PERDÉS POR MES</div>
+      <div class="roi-perdida" id="roi-total-mes">$0</div>
+      <div class="roi-periodo">en ventas que no se concretan</div>
+      <div class="roi-breakdown">
+        <div class="roi-breakdown-item"><span class="label">Consultas sin respuesta/mes</span><span class="value" id="roi-sin-resp">0</span></div>
+        <div class="roi-bar"><div class="roi-bar-fill" id="bar-sin-resp" style="width:0%"></div></div>
+        <div class="roi-breakdown-item"><span class="label">Ventas perdidas/mes</span><span class="value" id="roi-ventas-perd">0</span></div>
+        <div class="roi-bar"><div class="roi-bar-fill" id="bar-ventas" style="width:0%;background:linear-gradient(90deg,#ef4444,#ff6b6b)"></div></div>
+        <div class="roi-breakdown-item"><span class="label">Pérdida anual estimada</span><span class="value" id="roi-total-anio" style="color:#ef4444">$0</span></div>
+      </div>
+      <div class="roi-mensaje" id="roi-mensaje">Ajustá los sliders con los datos de tu negocio para ver tu resultado.</div>
+      <a id="roi-cta" href="https://wa.me/+542612079647" target="_blank" class="btn-primary" style="width:100%;justify-content:center;">Recuperá ese dinero → WhatsApp</a>
+      <p style="font-size:11px;color:var(--text-dim);text-align:center;margin-top:12px;line-height:1.5;">Un bot básico ($200.000 ARS, pago único) se paga solo<br>en menos de un mes con estos números.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-box-wrap"><div class="cta-box">
+  <h2 class="cta-title reveal">¿LOS NÚMEROS<br><span>TE CONVENCIERON?</span></h2>
+  <p class="cta-desc reveal">Armá tu paquete ideal y empezá a recuperar esa plata desde esta semana.</p>
+  <div class="cta-buttons reveal">
+    <a href="configurador.html" class="btn-primary">🧩 Armar mi paquete</a>
+    <a href="https://wa.me/+542612079647" target="_blank" class="btn-whatsapp">💬 Hablar con NEXOVA</a>
+  </div>
+</div></div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="nexova.js"></script>
+<script>
+injectNav('calculadora.html');injectFooter();initReveal();
+function fmt(n){return'$'+Math.round(n).toLocaleString('es-AR');}
+function calcROI(){
+  const ticket=parseFloat(document.getElementById('roi-rubro').value);
+  const consultas=parseFloat(document.getElementById('roi-consultas').value);
+  const pctFuera=parseFloat(document.getElementById('roi-fuera').value)/100;
+  const pctConv=parseFloat(document.getElementById('roi-conv').value)/100;
+  const dias=parseFloat(document.getElementById('roi-dias').value);
+  const sinRespMes=consultas*pctFuera*dias;
+  const ventasPerd=sinRespMes*pctConv;
+  const perdidaMes=ventasPerd*ticket;
+  const perdidaAnio=perdidaMes*12;
+  document.getElementById('roi-total-mes').textContent=fmt(perdidaMes);
+  document.getElementById('roi-total-anio').textContent=fmt(perdidaAnio)+'/año';
+  document.getElementById('roi-sin-resp').textContent=Math.round(sinRespMes);
+  document.getElementById('roi-ventas-perd').textContent=Math.round(ventasPerd);
+  document.getElementById('bar-sin-resp').style.width=Math.min((sinRespMes/500)*100,100)+'%';
+  document.getElementById('bar-ventas').style.width=Math.min((ventasPerd/200)*100,100)+'%';
+  let msg='';
+  if(perdidaMes<50000) msg='⚠️ Son '+fmt(perdidaAnio)+' al año. Un bot básico a $200.000 pago único se paga solo el primer mes.';
+  else if(perdidaMes<300000) msg='🔴 Perdés '+fmt(perdidaMes)+' por mes. Un bot de WhatsApp desde $200.000 — se recupera en días.';
+  else msg='🚨 ¡Más de '+fmt(perdidaMes)+' al mes! Con ese número, automatizar no es un gasto — es la mejor inversión que podés hacer.';
+  document.getElementById('roi-mensaje').textContent=msg;
+  const waText=encodeURIComponent('Hola NEXOVA, usé su calculadora y veo que pierdo aprox. '+fmt(perdidaMes)+' por mes sin automatización. Quiero saber cómo solucionarlo.');
+  document.getElementById('roi-cta').href='https://wa.me/+542612079647?text='+waText;
+}
+calcROI();
+</script>
+</body></html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configurador | NEXOVA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nexova.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-wrap">
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-label">Configurador interactivo</div>
+    <h1 class="page-hero-title">ARMÁ TU<br><span>PAQUETE IDEAL</span></h1>
+    <p class="page-hero-desc">Seleccioná los servicios que necesitás y el precio se actualiza en tiempo real. Al terminar, te mandamos el presupuesto por WhatsApp en segundos.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="config-layout reveal">
+    <!-- OPCIONES -->
+    <div>
+      <div class="config-block">
+        <div class="config-block-title">01 — Presencia Web (elegí uno)</div>
+        <div class="config-options">
+          <div class="config-option" data-group="web" data-id="landing" data-name="Landing Page" data-price="100000" onclick="selectOpt(this)">
+            <span class="config-option-icon">🚀</span><span class="config-option-name">Landing Page</span><span class="config-option-price">$100.000</span>
+          </div>
+          <div class="config-option" data-group="web" data-id="institucional" data-name="Web Institucional" data-price="200000" onclick="selectOpt(this)">
+            <span class="config-option-icon">🏢</span><span class="config-option-name">Web Institucional</span><span class="config-option-price">$200.000</span>
+          </div>
+          <div class="config-option" data-group="web" data-id="ecommerce" data-name="E-commerce" data-price="400000" onclick="selectOpt(this)">
+            <span class="config-option-icon">🛒</span><span class="config-option-name">E-commerce</span><span class="config-option-price">$400.000</span>
+          </div>
+        </div>
+      </div>
+      <div class="config-block">
+        <div class="config-block-title">02 — Automatización WhatsApp (elegí uno)</div>
+        <div class="config-options">
+          <div class="config-option" data-group="bot" data-id="bot-basico" data-name="Bot Básico" data-price="200000" onclick="selectOpt(this)">
+            <span class="config-option-icon">🤖</span><span class="config-option-name">Bot Básico</span><span class="config-option-price">$200.000</span>
+          </div>
+          <div class="config-option" data-group="bot" data-id="bot-ia" data-name="Bot IA" data-price="350000" onclick="selectOpt(this)">
+            <span class="config-option-icon">🧠</span><span class="config-option-name">Bot IA</span><span class="config-option-price">$350.000</span>
+          </div>
+          <div class="config-option" data-group="bot" data-id="bot-turnos" data-name="Bot IA + Turnos" data-price="400000" onclick="selectOpt(this)">
+            <span class="config-option-icon">📅</span><span class="config-option-name">Bot IA + Turnos</span><span class="config-option-price">$400.000</span>
+          </div>
+        </div>
+      </div>
+      <div style="padding:20px;background:rgba(0, 255, 157,.06);border:1px solid rgba(0, 255, 157,.2);border-radius:12px;margin-top:8px;">
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.7;">
+          <strong style="color:var(--orange);">⚡ Mantenimiento mensual obligatorio:</strong><br>
+          Todos los servicios incluyen $50.000/mes de mantenimiento para garantizar el funcionamiento, actualizaciones y soporte continuo. Se suma automáticamente al presupuesto.
+        </p>
+      </div>
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="config-summary">
+      <div class="config-summary-title">📋 Tu Presupuesto</div>
+      <div class="config-line-items" id="config-lines">
+        <div class="config-empty">Seleccioná servicios para ver el presupuesto</div>
+      </div>
+      <div class="config-divider"></div>
+      <div class="config-total">
+        <div class="config-total-label">TOTAL PAGO ÚNICO</div>
+        <div class="config-total-amount" id="config-total">$0</div>
+      </div>
+      <div class="config-total-monthly" id="monthly-line" style="display:none">
+        + $<span id="monthly-amt">0</span>/mes (mantenimiento)
+      </div>
+      <div style="margin:20px 0 8px;">
+        <a id="config-cta" href="#" onclick="return sendWA()" class="config-cta disabled">Quiero este paquete → WhatsApp</a>
+      </div>
+      <p class="config-note">Al hacer click te mandamos el detalle<br>directo a WhatsApp. Sin compromiso.</p>
+      <div id="pack-msg" style="display:none;margin-top:16px;padding:12px;background:rgba(0, 255, 157,.08);border-radius:8px;border:1px solid rgba(0, 255, 157,.2);font-size:12px;color:var(--orange);text-align:center;font-weight:600;">
+        🎉 Pack combo: consultanos por un descuento especial
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+<div id="footer-placeholder"></div>
+<script src="nexova.js"></script>
+<script>
+injectNav('configurador.html');injectFooter();initReveal();
+const state={web:null,bot:null};
+function fmt(n){return'$'+Math.round(n).toLocaleString('es-AR');}
+function selectOpt(el){
+  const group=el.dataset.group;
+  if(state[group]&&state[group].id===el.dataset.id){state[group]=null;el.classList.remove('selected');}
+  else{document.querySelectorAll('[data-group="'+group+'"]').forEach(o=>o.classList.remove('selected'));state[group]={id:el.dataset.id,name:el.dataset.name,price:parseInt(el.dataset.price)};el.classList.add('selected');}
+  render();
+}
+function render(){
+  const lines=[];let totalUnico=0,totalMes=0;
+  if(state.web){lines.push({name:state.web.name,price:state.web.price,tipo:'único'});totalUnico+=state.web.price;totalMes+=50000;}
+  if(state.bot){lines.push({name:state.bot.name,price:state.bot.price,tipo:'único'});totalUnico+=state.bot.price;totalMes+=50000;}
+  const linesEl=document.getElementById('config-lines');
+  if(lines.length===0){linesEl.innerHTML='<div class="config-empty">Seleccioná servicios para ver el presupuesto</div>';}
+  else{
+    let html=lines.map(l=>`<div class="config-line"><span class="line-name">${l.name}</span><span class="line-price">${fmt(l.price)}</span></div>`).join('');
+    if(totalMes>0) html+=`<div class="config-line mandatory"><span class="line-name">⚡ Mantenimiento mensual <span class="mandatory-badge">OBLIGATORIO</span></span><span class="line-price">${fmt(totalMes)}/mes</span></div>`;
+    linesEl.innerHTML=html;
+  }
+  document.getElementById('config-total').textContent=fmt(totalUnico);
+  const monthlyEl=document.getElementById('monthly-line');
+  if(totalMes>0){monthlyEl.style.display='block';document.getElementById('monthly-amt').textContent=Math.round(totalMes).toLocaleString('es-AR');}
+  else monthlyEl.style.display='none';
+  document.getElementById('pack-msg').style.display=(state.web&&state.bot)?'block':'none';
+  document.getElementById('config-cta').className='config-cta'+(lines.length===0?' disabled':'');
+}
+function sendWA(){
+  if(!state.web&&!state.bot)return false;
+  let msg='Hola NEXOVA! Armé mi paquete:\n';
+  let unico=0,mes=0;
+  if(state.web){msg+=`- ${state.web.name}: ${fmt(state.web.price)}\n`;unico+=state.web.price;mes+=50000;}
+  if(state.bot){msg+=`- ${state.bot.name}: ${fmt(state.bot.price)}\n`;unico+=state.bot.price;mes+=50000;}
+  msg+=`- Mantenimiento mensual: ${fmt(mes)}/mes\n\nTotal pago único: ${fmt(unico)}\nMás ${fmt(mes)}/mes\n\n¿Cuándo podemos hablar?`;
+  window.open('https://wa.me/+542612079647?text='+encodeURIComponent(msg),'_blank');
+  return false;
+}
+</script>
+</body></html>
