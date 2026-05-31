@@ -111,3 +111,66 @@ function switchTab(tab, event) {
     setTimeout(() => el.classList.add('visible'), 50);
   });
 }
+
+// ─── HERO DEMO COMPONENT ───
+let demoChatStarted = false;
+
+function switchDemoTab(tab, event) {
+  document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.demo-panel').forEach(p => p.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('demo-' + tab).classList.add('active');
+  
+  if (tab === 'chatbot' && !demoChatStarted) {
+    startDemoChat();
+  }
+}
+
+function startDemoChat() {
+  demoChatStarted = true;
+  const chatBody = document.getElementById('demo-chat-body');
+  if (!chatBody) return;
+  chatBody.innerHTML = '';
+  
+  const conversation = [
+    { sender: 'client', text: 'Hola, quiero más información sobre sus servicios.', delay: 500 },
+    { sender: 'ia', text: '¡Hola! Te ayudo. ¿Buscas una página web o una automatización?', delay: 2000 },
+    { sender: 'client', text: 'Una automatización para mi negocio.', delay: 4000 },
+    { sender: 'ia', text: 'Perfecto. Podemos automatizar atención al cliente, reservas y seguimiento de clientes automáticamente.', delay: 6000 },
+    { sender: 'client', text: 'Suena interesante.', delay: 9000 },
+    { sender: 'ia', text: 'Excelente. Podemos mostrarte una demo personalizada para tu negocio.', delay: 11000 }
+  ];
+
+  let typingIndicator = document.createElement('div');
+  typingIndicator.className = 'chat-typing';
+  typingIndicator.innerHTML = '<span></span><span></span><span></span>';
+
+  conversation.forEach((msg, index) => {
+    if (msg.sender === 'ia') {
+      setTimeout(() => {
+        chatBody.appendChild(typingIndicator);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }, msg.delay - 1000);
+    }
+
+    setTimeout(() => {
+      if (msg.sender === 'ia' && typingIndicator.parentNode === chatBody) {
+        chatBody.removeChild(typingIndicator);
+      }
+      
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `chat-msg ${msg.sender}`;
+      msgDiv.textContent = msg.text;
+      chatBody.appendChild(msgDiv);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, msg.delay);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    if (document.getElementById('demo-chat-body') && !demoChatStarted) {
+      startDemoChat();
+    }
+  }, 1000);
+});

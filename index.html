@@ -19,7 +19,7 @@
 .hero{position:relative;min-height:calc(100vh - 100px);display:flex;align-items:center;overflow:hidden;padding:80px 40px 100px;}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0, 255, 157,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0, 255, 157,.04) 1px,transparent 1px);background-size:60px 60px;z-index:0;}
 .hero-glow{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(0, 255, 157,.12) 0%,transparent 70%);z-index:0;pointer-events:none;}
-.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid var(--border);border-radius:100px;font-size:12px;color:var(--text-muted);letter-spacing:.08em;margin-bottom:32px;background:var(--surface);}
 .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 2s infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
@@ -50,7 +50,7 @@
 .teaser-name{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:.04em;}
 .teaser-desc{font-size:13px;color:var(--text-muted);line-height:1.6;flex-grow:1;}
 .teaser-link{font-size:13px;color:var(--orange);font-weight:600;}
-@media(max-width:900px){.hero{padding:60px 20px 80px;}.hero-title{font-size:clamp(56px,14vw,96px);}.hero-stats{grid-template-columns:1fr;}.problema-grid{grid-template-columns:1fr;gap:40px;}.services-teaser{grid-template-columns:1fr;}}
+@media(max-width:900px){.hero{padding:60px 20px 80px;}.hero-content{grid-template-columns:1fr;gap:60px;}.hero-title{font-size:clamp(56px,14vw,96px);}.problema-grid{grid-template-columns:1fr;gap:40px;}.services-teaser{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -64,14 +64,70 @@
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
-    <div class="hero-badge reveal"><span class="dot"></span>Disponibles para nuevos proyectos · Mendoza, Argentina</div>
-    <h1 class="hero-title reveal"><span class="orange">TU NEGOCIO</span><br><span>EN PILOTO</span><br><span class="outline">AUTOMÁTICO</span></h1>
-    <p class="hero-sub reveal">Automatizamos tu atención al cliente, construimos tu presencia digital y hacemos que tu negocio trabaje para vos — incluso cuando dormís.</p>
-    <div class="hero-ctas reveal">
-      <a href="configurador.html" class="btn-primary">Armá tu paquete ideal <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="calculadora.html" class="btn-secondary">¿Cuánto perdés sin automatizar?</a>
+    <div class="hero-text">
+      <div class="hero-badge reveal"><span class="dot"></span>Disponibles para nuevos proyectos · Mendoza, Argentina</div>
+      <h1 class="hero-title reveal"><span class="orange">TU NEGOCIO</span><br><span>EN PILOTO</span><br><span class="outline">AUTOMÁTICO</span></h1>
+      <p class="hero-sub reveal">Automatizamos tu atención al cliente, construimos tu presencia digital y hacemos que tu negocio trabaje para vos — incluso cuando dormís.</p>
+      <div class="hero-ctas reveal">
+        <a href="configurador.html" class="btn-primary">Armá tu paquete ideal <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="calculadora.html" class="btn-secondary">¿Cuánto perdés sin automatizar?</a>
+      </div>
     </div>
+    
+    <div class="hero-demo-container reveal">
+      <div class="hero-demo-card">
+        <div class="demo-tabs">
+          <button class="demo-tab active" onclick="switchDemoTab('chatbot', event)">🤖 Demo Chatbot</button>
+          <button class="demo-tab" onclick="switchDemoTab('web', event)">🌐 Demo Web</button>
+        </div>
+        
+        <!-- Pestaña Chatbot -->
+        <div id="demo-chatbot" class="demo-panel active">
+          <div class="demo-chat-header">
+            <div class="chat-avatar"><span class="chat-online"></span></div>
+            <div class="chat-info">
+              <div class="chat-name">IA Nexova</div>
+              <div class="chat-status">En línea</div>
+            </div>
+          </div>
+          <div class="demo-chat-body" id="demo-chat-body">
+            <!-- Los mensajes se inyectan por JS -->
+          </div>
+          <div class="demo-chat-footer">
+            <div class="chat-input-mock">Escribe un mensaje...</div>
+            <div class="chat-send-mock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+          </div>
+        </div>
 
+        <!-- Pestaña Web -->
+        <div id="demo-web" class="demo-panel">
+          <div class="demo-browser-header">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              gimnasioelite.com
+            </div>
+          </div>
+          <div class="demo-browser-body">
+            <div class="mock-nav">
+              <div class="mock-logo">Elite</div>
+              <div class="mock-links"><span class="mock-link"></span><span class="mock-link"></span></div>
+            </div>
+            <div class="mock-hero">
+              <div class="mock-badge">NUEVO GIMNASIO EN TU ZONA</div>
+              <h3 class="mock-title">TRANSFORMA TU CUERPO</h3>
+              <p class="mock-desc">Entrenamiento profesional, máquinas de última generación y seguimiento personalizado.</p>
+              <div class="mock-btn">Reservar Clase</div>
+              <div class="mock-features">
+                <span>✓ Entrenadores certificados</span>
+                <span>✓ Planes personalizados</span>
+                <span>✓ Atención inmediata</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
