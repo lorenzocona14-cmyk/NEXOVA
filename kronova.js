@@ -1,4 +1,4 @@
-﻿// ─── LOGO SVG ───
+// ─── LOGO SVG ───
 const LOGO_SVG = `
 <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="40" height="40" rx="9" fill="#0d0d0d"/>
@@ -34,7 +34,7 @@ function injectNav(activePage) {
   <nav>
     <a href="index.html" class="logo">
       ${LOGO_SVG}
-      <span class="logo-text">NEX<span>OVA</span></span>
+      <span class="logo-text">KRONOVA<span> SOLUTIONS</span></span>
     </a>
     <ul class="nav-links">${links}
       <li><a href="https://wa.me/+542612079647" target="_blank" class="btn-nav">Hablemos →</a></li>
@@ -63,7 +63,7 @@ function injectFooter() {
     <div class="footer-inner">
       <a href="index.html" class="logo">
         ${LOGO_SVG}
-        <span class="logo-text">NEX<span>OVA</span></span>
+        <span class="logo-text">KRONOVA<span> SOLUTIONS</span></span>
       </a>
       <ul class="footer-links">
         <li><a href="servicios.html">Servicios</a></li>
