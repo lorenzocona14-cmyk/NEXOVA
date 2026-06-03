@@ -34,7 +34,7 @@ function injectNav(activePage) {
   <nav>
     <a href="index.html" class="logo">
       ${LOGO_SVG}
-      <span class="logo-text">KRONOVA<span> SOLUTIONS</span></span>
+      <span class="logo-text">Kronova Solutions</span>
     </a>
     <ul class="nav-links">${links}
       <li><a href="https://wa.me/+542612079647" target="_blank" class="btn-nav">Hablemos →</a></li>
@@ -63,7 +63,7 @@ function injectFooter() {
     <div class="footer-inner">
       <a href="index.html" class="logo">
         ${LOGO_SVG}
-        <span class="logo-text">KRONOVA<span> SOLUTIONS</span></span>
+        <span class="logo-text">Kronova Solutions</span>
       </a>
       <ul class="footer-links">
         <li><a href="servicios.html">Servicios</a></li>
@@ -72,7 +72,7 @@ function injectFooter() {
         <li><a href="proceso.html">Proceso</a></li>
         <li><a href="nosotros.html">Nosotros</a></li>
       </ul>
-      <p class="footer-copy">© 2026 KRONOVA SOLUTIONS — Mendoza, Argentina</p>
+      <p class="footer-copy">© 2026 Kronova Solutions — Mendoza, Argentina</p>
     </div>
   </footer>`;
 }
